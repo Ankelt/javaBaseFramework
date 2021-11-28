@@ -6,7 +6,7 @@ import org.testng.Assert;
 import java.time.Duration;
 
 import static common.Config.PLATFORM_AND_BROWSER;
-import static constants.Constants.TimeoutVariable.IMPLICITLY_WAIT;
+import static constants.Constants.TimeoutVariable.IMPLICIT_WAIT;
 
 public class CommonActions {
     public static WebDriver createDriver(){
@@ -16,14 +16,14 @@ public class CommonActions {
 
         switch (PLATFORM_AND_BROWSER) {
             case ("mac_chrome"):
-                System.setProperty("webdriver.chrome.driver", currentWorkingDirectory + "/drivers/chromedriver");
+                System.setProperty("webdriver.chrome.driver", currentWorkingDirectory + "src/main/resources/drivers/chromedriver");
                 driver = new ChromeDriver();
                 break;
             default:
                 Assert.fail("Incorrect platform or browser name: " + PLATFORM_AND_BROWSER);
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
         return driver;
     }
 }
