@@ -1,8 +1,11 @@
+package base;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import pages.BasePage;
+import pages.ListingPage;
 import pages.RealtHomePage;
 
 import static common.CommonActions.createDriver;
@@ -13,6 +16,7 @@ public class BaseTest {
     protected WebDriver driver = createDriver();
     protected BasePage basePage = new BasePage(driver);
     protected RealtHomePage homePage = new RealtHomePage(driver);
+    protected ListingPage listingPage = new ListingPage(driver);
 
     @AfterTest
     public void clearCookiesAndLocalStorage() {
